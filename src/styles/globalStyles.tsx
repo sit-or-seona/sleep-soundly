@@ -34,6 +34,10 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     background-color: inherit;
   }
+
+  select {
+    cursor: pointer;
+  }
 `;
 
 export default GlobalStyles;

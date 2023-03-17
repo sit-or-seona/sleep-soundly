@@ -1,4 +1,5 @@
 import React from "react";
+import * as S from "./style";
 
 type OptionsType = (number | string)[];
 
@@ -8,12 +9,12 @@ interface SelectProps {
   defaultValue?: string | number;
 }
 
-function SelectBox({ options, id, defaultValue }: SelectProps): JSX.Element {
+function Select({ options, id, defaultValue }: SelectProps): JSX.Element {
   return (
-    <div>
-      <select name={id} id={id} defaultValue={defaultValue}>
+    <S.SelectBox>
+      <select id={id} defaultValue={defaultValue}>
         {options.map((item) => (
-          <option key={`${id}-${item}`} id={`${id}-${item}`}>
+          <option key={`${id}-${item}`} value={item}>
             {item}
           </option>
         ))}
@@ -22,7 +23,7 @@ function SelectBox({ options, id, defaultValue }: SelectProps): JSX.Element {
         {id === "select-hours" && "시"}
         {id === "select-minutes" && "분"}
       </label>
-    </div>
+    </S.SelectBox>
   );
 }
 
@@ -38,5 +39,5 @@ const minutesProps = {
   defaultValue: "00",
 };
 
-export const SelectHours = SelectBox(hoursProps);
-export const SelectMinutes = SelectBox(minutesProps);
+export const SelectHours = Select(hoursProps);
+export const SelectMinutes = Select(minutesProps);
